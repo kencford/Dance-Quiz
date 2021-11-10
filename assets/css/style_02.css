@@ -1,0 +1,30 @@
+* {
+    box-sizing: border-box;
+  }
+  
+  body {
+    font-family: Arial;
+    margin: 2%;
+  }
+
+.top-row {
+    display: flex;
+}
+
+.top-left {
+   flex: 50%;
+   text-align: left;
+}
+
+.top-right {
+    flex: 50%;
+    text-align: right;
+}
+
+.startQuiz {
+  text-align: center;
+}
+
+.hidden {
+  display: none;
+}

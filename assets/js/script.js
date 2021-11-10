@@ -1,32 +1,39 @@
-var timerDisplay = document.getElementById("timer-display");
-var timerValue = 100;
-console.log(timerDisplay.textContent);
-timerDisplay.textContent = timerValue;
-var timerId;
+// Data
+// Blobalvariables for application state
+//HTML elements
+var startScreenEl = document.getElementsById(start - screen);
+var startBtn = document.getElementById("start");
+var questions [
+    { 
+        text: "My question 1",
+        choices: ["answer 1","ans2","ans3"],
+        answer: "answer 1"
+    },
+    {
+        text: "My question 1",
+        choices: ["answer 1","ans2","ans3"],
+        answer: "answer 1"
+     },
+    {
+        text: "My question 1",
+        choices: ["answer 1","ans2","ans3"],
+        answer: "answer 1"
+     },
+]
 
-var questionsPageEl = document.getElementById("questionsPage");
-var startQuizEl = document.getElementById("startQuiz");
-var strtBtn = document.getElementById("startButton");
 
-function oneSecondHandler() {
-    timerValue--;
-    timerDisplay.textContent = timerValue;
+function startQuiz() {
+    startScreenEl.setAttribute("class", "hide");
 }
 
-//start button when clicked calls beginQuiz
+console.log(questions[1].text);
+console.log(questions[0].answer);
 
-function beginQuiz() {
-    timerId = setInterval(oneSecondHandler, 1000);
-    console.log(startQuizEl.classList);
-    startQuizEl.setAttribute("class", "hidden") ;
-    console.log(startQuizEl.classList);
-    questionsPageEl.removeAttribute("class");
-}
-// above calls "oneSecondHandler" every 1000 mS
+for (var i=0; i < questions.length; i++) (
+    console.log(questions[i].text);
+    console.log(questions[i].choices);
+    console.log(questions[i].answer);
+)
 
-// beginQuiz();
+startBtn.addEventListener("click", startQuiz);
 
-// strtBtn.addEventListener("click", beginQuiz);
-
-// alternative method
-strtBtn.onclick = beginQuiz;
