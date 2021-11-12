@@ -1,3 +1,22 @@
 .hide {
-  display:none;
+  display: none;
+}
+
+.show {
+  /* block means stacke up vertically */
+  display: block;
+}
+
+
+.start {
+  text-align: center;
+}
+
+.choices button {
+  display: block;
+  margin: 10px;
+}
+
+.choices {
+  text-align: left;
 }
