@@ -29,7 +29,6 @@ var questions = [
 // for looping through questions
 var quizQuestionsIndex = 0;
 var timeLeft = questions.length * 3;
-var score = 0;
 
 // HTML elements
 var startScreenEl = document.getElementById("start-screen");
@@ -70,18 +69,15 @@ function questionClick() {
         //wrong answer
         console.log('wrong!');
         // deduct time 
-        timeLeft-=5;
+        timeLeft
     } else {
         //right answer
         console.log('correct!');    
         //add to score
-        score++ ;
-        console.log("score " + score);
     }
-    // askQuestions();
+    askQuestions();
 }
 function askQuestions() {
-
     // object that is selected by "quizQuestionsIndex"
     var currentQuestion = questions[quizQuestionsIndex];
     var question = currentQuestion.text;
@@ -116,8 +112,7 @@ function askQuestions() {
 // console.log(questions[0].answer);
 
 function endOfQuiz() {
-    console.log('end of quiz');
-    console.log('Score: ', score);
+
 }
 
 function handleTicks() {
@@ -131,7 +126,6 @@ function handleTicks() {
         //stop timer with handle "timerId"
         clearInterval(timerId);
         //quiz ends
-        endOfQuiz();
     }
     // if timed out, quiz ends
 }
