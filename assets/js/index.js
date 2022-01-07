@@ -28,7 +28,7 @@ var questions = [
 
 // for looping through questions
 var quizQuestionsIndex = 0;
-var timeLeft = questions.length * 10;
+var timeLeft = questions.length * 20;
 var score = 0;
 
 // HTML elements
@@ -36,6 +36,7 @@ var startScreenEl = document.getElementById("start-screen");
 var startBtn = document.getElementById("start");
 var questionsEl = document.getElementById("questions");
 var timerEl = document.getElementById("time");
+var timeDiv = document.querySelector('.timer')
 
 var questionTextEl = document.getElementById("question-text");
 // console.log("questionTextEl: ", questionTextEl);
@@ -88,6 +89,7 @@ function questionClick() {
     // Increment index for the next question
     quizQuestionsIndex++
     if (quizQuestionsIndex >= questions.length) {
+        handleTicks()
         endOfQuiz();
     } else {
         askQuestions();
@@ -126,6 +128,7 @@ function askQuestions() {
 
 function handleTicks() {
     //Document time count
+   
     timeLeft--;
     //Displa time count
     if (timeLeft < 0) {
@@ -133,10 +136,11 @@ function handleTicks() {
     }
     timerEl.textContent = timeLeft;
     //0 --> false
-    if (!timeLeft) {
-        console.log("time is up");
+    if (timeLeft < 0) {
+      //  console.log("time is up");
         //stop timer with handle "timerId"
-        clearInterval(timerId);
+      //  clearInterval(timerId);
+        
         //quiz ends
         endOfQuiz();
     }
@@ -144,6 +148,7 @@ function handleTicks() {
 }
 
 function endOfQuiz() {
+    clearInterval(timerId);
     questionsEl.setAttribute("class", "hide");
     endScreenEl.setAttribute("class", "show");
     timerEl.textContent = "";
